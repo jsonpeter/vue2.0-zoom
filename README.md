@@ -29,4 +29,4 @@
              maskOpacity:0.2
            }
 ```
-#####有问题欢迎留言、star，详细参数说明：[vue2.0-zoom github] (https://github.com/jsonpeter/vue2.0-zoom)
+有问题欢迎留言、star，详细参数说明：[vue2.0-zoom github] (https://github.com/jsonpeter/vue2.0-zoom)
