@@ -4,7 +4,7 @@
 
 #### 基于vue的图片放大镜效果插件
 
-
+[演示地址](http://jsrun.net/nmiKp/show)
 
 #### 安装
 ``` npm install vue2.0-zoom ```
@@ -29,4 +29,4 @@
              maskOpacity:0.2
            }
 ```
-有问题欢迎留言、star，详细参数说明：[vue2.0-zoom github] (https://github.com/jsonpeter/vue2.0-zoom)
+有问题欢迎留言、star
