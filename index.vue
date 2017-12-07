@@ -11,9 +11,8 @@
 </template>
 
 <script>
-  import imgZoom from './imgZoom.vue';
   export default {
-    name: 'app',
+    name: 'vueZoom',
     props: {
       src: {
         type: String,
@@ -119,13 +118,6 @@
           document.body.appendChild(imgLayer);
         }
       }
-    },
-    mounted() {
-      console.log(this)
     }
   }
 </script>
-
-<style lang="scss">
-
-</style>
