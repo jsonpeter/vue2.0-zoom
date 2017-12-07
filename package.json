@@ -1,7 +1,7 @@
 {
   "name": "vue2.0-zoom",
   "description": "基于vue的图片放大镜效果插件",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "jsonpeter <aspcms@foxmail.com>",
   "license": "ISC",
   "scripts": {
