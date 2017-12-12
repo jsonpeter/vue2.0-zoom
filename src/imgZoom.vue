@@ -6,13 +6,13 @@
 </style>
 <template>
   <div class="_magnifier">
-    <img :src="src" :width="width" :height="height" @mouseover="handOver" @mousemove="handMove" @mouseout="handOut" />
+    <img :src="src" :width="width" :height="height" @mouseover="handOver" @mousemove="handMove" @mouseout="handOut"/>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'vueZoom',
+    name: 'app',
     props: {
       src: {
         type: String,
@@ -76,14 +76,15 @@
           _maskX=this.imgRect.width-this.mouseMask.offsetWidth;
         }
         this.mouseMask.style.webkitTransform=`translate3d(${_maskX}px,${_maskY}px,0)`;
+        //判断背景图是否小于预览框
         if(backgroundY+this.configs.height>=this.bigImg.height){
-          backgroundY=this.bigImg.height-this.configs.height;
+            backgroundY=this.bigImg.height-this.configs.height;
         }
         if(backgroundX+this.configs.width>=this.bigImg.width){
-          backgroundX=this.bigImg.width-this.configs.width;
+            backgroundX=this.bigImg.width-this.configs.width;
         }
-        this.imgLayer.style.backgroundPositionX= `-${backgroundX}px `;
-        this.imgLayer.style.backgroundPositionY= `-${backgroundY}px `;
+          this.imgLayer.style.backgroundPositionX= `-${backgroundX}px `;
+          this.imgLayer.style.backgroundPositionY= `-${backgroundY}px `;
       },
       handOut(e) {
         this.imgLayer.remove();
