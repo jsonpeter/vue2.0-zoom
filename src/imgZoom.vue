@@ -6,7 +6,7 @@
 </style>
 <template>
   <div class="_magnifier">
-    <img :src="src" :width="width" :height="height" @mouseover="handOver" @mousemove="handMove" @mouseout="handOut"/>
+    <img :src="src" :width="width" :height="height" @mouseover="handOver"  @mousemove="handMove" @mouseout="handOut"/>
   </div>
 </template>
 
@@ -55,20 +55,20 @@
     },
     methods: {
       handMove(e) {
-        let objX=e.pageX - this.imgRect.x;
-        let objY=e.pageY - this.imgRect.y;
+        let objX=e.pageX - this.imgRect.left;
+        let objY=e.pageY - this.imgRect.top;
         let backgroundX=objX*(Math.ceil(this.bigImg.width/this.imgObj.offsetWidth)/1.5);
         let backgroundY=objY*(Math.ceil(this.bigImg.height/this.imgObj.offsetHeight)/1.5);
         //判断是否超出界限
         let _maskX=objX-this.mouseMask.offsetHeight/2;
         let _maskY=objY-this.mouseMask.offsetWidth/2;
 
-      if(_maskY<=0){
-        _maskY=0;
-      }
-      if(_maskY+this.mouseMask.offsetHeight>=this.imgRect.height){
-        _maskY=this.imgRect.height-this.mouseMask.offsetHeight;
-      }
+        if(_maskY<=0){
+          _maskY=0;
+        }
+        if(_maskY+this.mouseMask.offsetHeight>=this.imgRect.height){
+          _maskY=this.imgRect.height-this.mouseMask.offsetHeight;
+        }
         if(_maskX<=0){
           _maskX=0;
         }
@@ -78,13 +78,13 @@
         this.mouseMask.style.webkitTransform=`translate3d(${_maskX}px,${_maskY}px,0)`;
         //判断背景图是否小于预览框
         if(backgroundY+this.configs.height>=this.bigImg.height){
-            backgroundY=this.bigImg.height-this.configs.height;
+          backgroundY=this.bigImg.height-this.configs.height;
         }
         if(backgroundX+this.configs.width>=this.bigImg.width){
-            backgroundX=this.bigImg.width-this.configs.width;
+          backgroundX=this.bigImg.width-this.configs.width;
         }
-          this.imgLayer.style.backgroundPositionX= `-${backgroundX}px `;
-          this.imgLayer.style.backgroundPositionY= `-${backgroundY}px `;
+        this.imgLayer.style.backgroundPositionX= `-${backgroundX}px `;
+        this.imgLayer.style.backgroundPositionY= `-${backgroundY}px `;
       },
       handOut(e) {
         this.imgLayer.remove();
@@ -113,8 +113,8 @@
           imgLayer.id = '_magnifier_layer';
           imgLayer.style.width = _layerWidth + 'px';
           imgLayer.style.height = _layerHeight + 'px';
-          imgLayer.style.left =this.imgRect.x+this.imgRect.width + 'px';
-          imgLayer.style.top = this.imgRect.y+ 'px';
+          imgLayer.style.left =this.imgRect.left+this.imgRect.width + 'px';
+          imgLayer.style.top = this.imgRect.top+ 'px';
           imgLayer.style.backgroundImage = `url('${this.bigsrc}')`;
           imgLayer.style.backgroundRepeat = 'no-repeat';
           document.body.appendChild(imgLayer);
